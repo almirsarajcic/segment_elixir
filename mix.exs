@@ -9,7 +9,7 @@ defmodule AnalyticsElixir.Mixfile do
       dialyzer: [
         plt_add_apps: [:mix],
         plt_add_deps: :app_tree,
-        plt_file: {:no_warn, "priv/plts/segment_elixir.plt"},
+        plt_file: {:no_warn, "priv/plts/segment_elixir.plt"}
       ],
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -26,7 +26,7 @@ defmodule AnalyticsElixir.Mixfile do
       ],
       source_url: "https://github.com/joshsmith/segment_elixir/",
       test_coverage: [tool: ExCoveralls],
-      version: "2.0.0-rc.2",
+      version: "2.0.0-rc.2"
     ]
   end
 
@@ -36,7 +36,7 @@ defmodule AnalyticsElixir.Mixfile do
   def application do
     [
       applications: apps(Mix.env()),
-      mod: {Segment, []},
+      mod: {Segment, []}
     ]
   end
 
@@ -46,7 +46,7 @@ defmodule AnalyticsElixir.Mixfile do
 
   defp apps(:test), do: apps()
   defp apps(_), do: apps()
-  defp apps(), do: [:logger]
+  defp apps(), do: [:logger, :hackney, :httpoison, :jason]
 
   defp deps do
     [
@@ -56,7 +56,7 @@ defmodule AnalyticsElixir.Mixfile do
       {:exvcr, "~> 0.10", only: :test},
       {:httpoison, "~> 1.5.1"},
       {:inch_ex, "~> 2.0", only: [:dev, :test]},
-      {:jason, "~> 1.1"},
+      {:jason, "~> 1.1"}
     ]
   end
 
@@ -68,7 +68,7 @@ defmodule AnalyticsElixir.Mixfile do
       maintainers: ["Josh Smith"],
       name: "segment_elixir",
       licenses: ["MIT"],
-      links: %{ "GitHub" => "https://github.com/joshsmith/segment_elixir" }
+      links: %{"GitHub" => "https://github.com/joshsmith/segment_elixir"}
     ]
   end
 end
